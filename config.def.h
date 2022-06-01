@@ -38,19 +38,12 @@ static const char col_urgborder[]   = "#ff0000";
 static const char *tags[] = { "", "", "", "", "ﭮ", "ﲳ", "" };
 
 static const Rule rules[] = {
-	/* xprop(1):
-	 *	WM_CLASS(STRING) = instance, class
-	 *	WM_NAME(STRING) = title
-	 *	"7" "6" "5" "4" "3" "2" "1"
-	 *	 0   0   0   0   0   0   1
-	 *	 1 << 0 -> 000000001 -> tag "1"
-	 *	 1 << 2 -> 000000100 -> tag "3"
-	 */
-	/* class         instance    title       tags mask     isfloating   monitor */
-	{ "firefox",      NULL,       NULL,       1 << 0,       0,           -1 },
-	{ "st-256color",  NULL,       NULL,       1 << 2,       0,           -1 },
-	{ "discord",      NULL,       NULL,       1 << 4,       0,           -1 },
-	{ "Code",         NULL,       NULL,       1 << 1,       0,           -1 },
+	/* class            instance    title   tags mask  switchtag  isfloating   monitor */
+	{ "Gimp",           NULL,       NULL,   0,         1,         1,           -1 },
+	{ "firefox",        NULL,       NULL,   1 << 0,    1,         0,           -1 },
+	{ "Code",           NULL,       NULL,   1 << 1,    1,         0,           -1 },
+	{ "st-256color",    NULL,       NULL,   1 << 2,    1,         0,           -1 },
+	{ "discord",        NULL,       NULL,   1 << 4,    1,         0,           -1 },
 };
 
 /* layout(s) */
