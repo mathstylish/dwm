@@ -1307,8 +1307,9 @@ monocle(Monitor *m)
 	Client *c;
 
 	for (n = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), n++);
-	if (n == 0)
+	if (n == 0) {
 		return;
+	}
 
 	if (smartgaps == n) {
 		oe = 0; // outer gaps disabled
@@ -1316,10 +1317,10 @@ monocle(Monitor *m)
 	
 	n = 0;
 
-	for (c = m->clients; c; c = c->next)
-		if (ISVISIBLE(c))
+	for (c = m->clients; c; c = c->next) {
+		if (ISVISIBLE(c)) {
 			n++;
-			if (n > 0) /* override layout symbol */
+			if (n > 0) { /* override layout symbol */
 				snprintf(m->ltsymbol, sizeof m->ltsymbol, "[%d]", n);
 				int newx, newy, neww, newh;
 
@@ -1336,12 +1337,17 @@ monocle(Monitor *m)
 						newh = m->wh - 2 * (m->gappoh*oe + c->bw);
 					}
 					applysizehints(c, &newx, &newy, &neww, &newh, 0);
-					if (neww < m->ww)
+					if (neww < m->ww) {
 						newx = m->wx + (m->ww - (neww + 2 * c->bw)) / 2;
-					if (newh < m->wh)
+					}
+					if (newh < m->wh) {
 						newy = m->wy + (m->wh - (newh + 2 * c->bw)) / 2;
 						resize(c, newx, newy, neww, newh, 0);
+					}
 				}
+			}
+		}
+	}
 
 }
 
