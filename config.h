@@ -17,26 +17,45 @@ static const int showbar            = 1;     /* 0 means no bar */
 static const int topbar             = 1;     /* 0 means bottom bar */
 static const int focusonwheel       = 0;
 static const char *fonts[]          = { 
-	"Hack Nerd Font:style=Regular:size=11:antialias=true:autohint=true",
+  "monospace:size=10",
+	"Hack Nerd Font:style=Regular:size=13:antialias=true:autohint=true",
 	"NotoColorEmoji:pixelsize=14:antialias=true:autohint=true" 
 };
 static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+
+
+static const char col_gray1[]            = "#1f2227";
+static const char col_gray2[]            = "#abb2bf";
+static const char col_gray3[]            = "#abb2bf";
+static const char col_gray4[]            = "#abb2bf";
+static const char col_cyan[]             = "#88c0d0";
+static const char col_purple[]           = "#B48EAD";
+static const char col_red[]              = "#d54646";
+static const char col_green[]            = "#23d18b";
+static const char col_yellow[]           = "#d7ba7d";
+static const char col_blue[]             = "#81a1c1";
+static const char col_info_blue[]        = "#4fc1ff";
+static const char col_magenta[]          = "#c586c0";
+static const char col_white[]            = "#abb2bf";
+static const char col_bg_alt[]           = "#212121";
 static const char col_urgborder[]   = "#ff0000";
-static const char *colors[][3]      = {
+
+static const char *colors[][3] = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
-	[SchemeUrg]  = { col_gray4, col_cyan,  col_urgborder  },
+	[SchemeNorm]     = { col_gray4, col_gray1, col_gray2 },
+	[SchemeSel]      = { col_gray4, col_blue,  col_blue  },
+	[SchemeStatus]   = { col_gray4, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
+
+	[SchemeTagsSel]  = { col_info_blue, col_gray1,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+  [SchemeTagsNorm] = { col_gray3, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+
+  [SchemeInfoSel]  = { col_yellow, col_gray1,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+  [SchemeInfoNorm] = { col_yellow, col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
-
 /* tagging */
-static const char *tags[] = { "", "", "", "", "ﭮ", "ﲳ", "" };
+//static const char *tags[] = { "", "", "", "", "ﭮ", "ﲳ", "" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7" };
 
 static const Rule rules[] = {
 	/* class            instance    title   tags mask  switchtag  isfloating   monitor */
